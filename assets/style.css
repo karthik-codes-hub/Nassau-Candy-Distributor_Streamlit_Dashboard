@@ -1,0 +1,431 @@
+/* Nassau Candy Distributor Profitability Analysis - Modern Power BI Styling */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary-orange: #F97316;
+    --orange-hover: #EA580C;
+    --accent-peach: #F5C4AF;
+    --accent-coral: #EB895F;
+    --dark-bg: #1F2937;
+    --dark-card: #242E3D;
+    --dark-card-border: rgba(255, 255, 255, 0.08);
+    --dark-text: #F9FAFB;
+    --dark-muted: #9CA3AF;
+    --light-bg: #F3F4F6;
+    --light-card: #FFFFFF;
+    --light-card-border: #E5E7EB;
+    --light-text: #1F2937;
+    --light-muted: #6B7280;
+    --risk-high: #E53935;
+    --risk-medium: #FBC02D;
+    --risk-low: #43A047;
+}
+
+/* Global Font and Smooth Transitions */
+html, body, [class*="css"] {
+    font-family: 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    letter-spacing: -0.01em;
+}
+
+/* Hide Streamlit Header Bar, Deploy Button, and MainMenu (Image 2) */
+header[data-testid="stHeader"], 
+[data-testid="stHeader"], 
+#MainMenu, 
+.stDeployButton, 
+footer {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.stAppViewBlockContainer, .block-container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 2rem !important;
+}
+
+/* Header Container */
+.dashboard-header {
+    background: #111827;
+    border-radius: 14px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    border: 1px solid rgba(249, 115, 22, 0.25);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.header-title-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-title-text {
+    font-size: 1.55rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #FFFFFF !important;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.header-subtitle {
+    font-size: 0.85rem;
+    color: #F97316 !important;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+/* KPI Card Styles - Uniform Fixed Height Across All 5 Cards */
+.kpi-card {
+    border-radius: 12px;
+    padding: 12px 14px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    border-left: 8px solid var(--primary-orange) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 104px !important;
+    min-height: 104px !important;
+    max-height: 104px !important;
+    box-sizing: border-box !important;
+    margin-bottom: 14px;
+    overflow: hidden !important;
+}
+
+.kpi-card-dark {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-card-border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.kpi-card-light {
+    background: var(--light-card);
+    border: 1px solid var(--light-card-border);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(249, 115, 22, 0.22);
+}
+
+.kpi-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    flex: 1;
+}
+
+.kpi-label-dark, .kpi-label-light {
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.03em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 2px !important;
+    line-height: 1.15 !important;
+}
+
+.kpi-label-dark {
+    color: var(--dark-muted) !important;
+}
+
+.kpi-label-light {
+    color: var(--light-muted) !important;
+}
+
+.kpi-value-dark {
+    font-size: 1.7rem !important;
+    font-weight: 800 !important;
+    color: #FFFFFF !important;
+    line-height: 1.05 !important;
+    margin: 2px 0 !important;
+}
+
+.kpi-value-light {
+    font-size: 1.7rem !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    line-height: 1.05 !important;
+    margin: 2px 0 !important;
+}
+
+.kpi-subtext {
+    font-size: 0.70rem !important;
+    color: var(--primary-orange) !important;
+    font-weight: 600 !important;
+    margin-top: 1px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    line-height: 1.1 !important;
+}
+
+.kpi-icon-container {
+    width: 48px !important;
+    height: 48px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: 8px;
+}
+
+.kpi-icon-img {
+    max-width: 46px !important;
+    max-height: 46px !important;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Card Containers for Visuals */
+.visual-container {
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 18px;
+    transition: box-shadow 0.2s ease;
+}
+
+.visual-container-dark {
+    background: var(--dark-card);
+    border: 1px solid var(--dark-card-border);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22);
+}
+
+.visual-container-light {
+    background: var(--light-card);
+    border: 1px solid var(--light-card-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.visual-title-dark {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+    padding-left: 4px;
+}
+
+.visual-title-light {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+    padding-left: 4px;
+}
+
+/* Margin Risk Table Styling */
+.risk-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.84rem;
+    margin-top: 6px;
+}
+
+.risk-table th {
+    font-weight: 700;
+    padding: 8px 10px;
+    text-align: right;
+    border-bottom: 2px solid var(--primary-orange);
+    white-space: nowrap;
+}
+
+.risk-table th:first-child {
+    text-align: left;
+}
+
+.risk-table td {
+    padding: 7px 10px;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+}
+
+.risk-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+}
+
+.risk-table-dark th {
+    color: #E5E7EB;
+    background: #1E2633;
+}
+
+.risk-table-dark td {
+    color: #D1D5DB;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.risk-table-dark tr:hover td {
+    background: rgba(249, 115, 22, 0.1);
+}
+
+.risk-table-light th {
+    color: #1F2937;
+    background: #F9FAFB;
+}
+
+.risk-table-light td {
+    color: #374151;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.risk-table-light tr:hover td {
+    background: rgba(249, 115, 22, 0.06);
+}
+
+.risk-table tr.total-row td {
+    font-weight: 800;
+    border-top: 2px solid var(--primary-orange);
+    border-bottom: 2px solid var(--primary-orange);
+}
+
+.risk-table-dark tr.total-row td {
+    color: #FFFFFF;
+    background: #1A222D;
+}
+
+.risk-table-light tr.total-row td {
+    color: #111827;
+    background: #F3F4F6;
+}
+
+/* Status Badges */
+.badge-low {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #43A047;
+    font-weight: 700;
+}
+
+.badge-med {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #F59E0B;
+    font-weight: 700;
+}
+
+.badge-high {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #EF4444;
+    font-weight: 700;
+}
+
+/* Product Detail Panel */
+.product-detail-box {
+    border-radius: 12px;
+    padding: 18px 22px;
+    border-left: 6px solid var(--primary-orange);
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+.product-detail-dark {
+    background: #1E2736;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #F9FAFB;
+}
+
+.product-detail-light {
+    background: #FFFBF7;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+    color: #1F2937;
+}
+
+/* Business Insights Cards */
+.insight-card {
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    border-left: 4px solid var(--primary-orange);
+    transition: transform 0.2s ease;
+}
+
+.insight-card:hover {
+    transform: translateX(4px);
+}
+
+.insight-dark {
+    background: #1E2633;
+    color: #E5E7EB;
+}
+
+.insight-light {
+    background: #F8FAFC;
+    color: #334155;
+    border-top: 1px solid #E2E8F0;
+    border-right: 1px solid #E2E8F0;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+/* Custom Interactive Button & Control Styling */
+button, .stButton > button, div[data-testid="stDownloadButton"] > button {
+    cursor: pointer !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Dark mode buttons */
+.stApp[data-theme="dark"] button,
+body .stButton > button, 
+body div[data-testid="stDownloadButton"] > button {
+    background-color: #242E3D !important;
+    color: #F9FAFB !important;
+    border: 1px solid rgba(249, 115, 22, 0.35) !important;
+}
+
+body .stButton > button:hover, 
+body div[data-testid="stDownloadButton"] > button:hover {
+    background-color: #F97316 !important;
+    color: #FFFFFF !important;
+    border-color: #F97316 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35) !important;
+}
+
+/* Light mode specific button overrides */
+.light-mode-btn {
+    background-color: #FFFFFF !important;
+    color: #1F2937 !important;
+    border: 1px solid #D1D5DB !important;
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(249, 115, 22, 0.4);
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #F97316;
+}
+
